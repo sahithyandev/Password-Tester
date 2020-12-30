@@ -15,6 +15,15 @@ export const App = () => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
+
+    fetch(`/api/main?password=${values["password"]}`)
+      .then((a) => a.json())
+      .then((c) => {
+        console.log(c);
+      })
+      .catch((w) => {
+        console.log(w);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {
