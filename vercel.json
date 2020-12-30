@@ -1,0 +1,10 @@
+{
+  "engines": {
+    "node": "12.x"
+  },
+  "functions": {
+    "api/main.ts": {
+      "maxDuration": 50
+    }
+  }
+}
