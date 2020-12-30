@@ -1,30 +1,56 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Typography } from "antd";
+import { Typography, Button, Input, Form } from "antd";
+
+import { Result } from "./components/Result";
+import { ResultObj } from "./types";
 
 import "./style/main.scss";
 import "./style/theme.antd.less";
 
 const { Title } = Typography;
 
-// Import PNG like this
-// import logo from "./assets/logo.png";
-
-// Import SVG like this
-// import logo from "./assets/logo.svg";
-
 export const App = () => {
-  // const;
+  const [result, setResult] = React.useState<ResultObj>(null);
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
   return (
-    <div>
+    <div className="app">
       <Title className="main-title">Password Tester</Title>
       <div>
-        <h2></h2>
-        {/* Insert Antdesign Input here */}
+        {!result ? (
+          <Form
+            initialValues={{ password: "" }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+          >
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[{ required: true, message: "Give a password to test" }]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item>
+              <Button size="middle" type="primary" htmlType="submit">
+                Test
+              </Button>
+            </Form.Item>
+          </Form>
+        ) : (
+          <Result data={result} />
+        )}
       </div>
 
-      <div id="about">Created by Sahithyan with ❤️</div>
+      <div className="about">Created by Sahithyan with ❤️</div>
     </div>
   );
 };

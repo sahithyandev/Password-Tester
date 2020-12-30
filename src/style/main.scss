@@ -3,3 +3,11 @@
 .main-title {
   @extend .playfair-display-700;
 }
+
+.about {
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
