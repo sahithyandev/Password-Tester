@@ -1,11 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Typography } from "antd";
 
-// Import CSS like this
-import "./style/main.css";
+import "./style/main.scss";
+import "./style/theme.antd.less";
+
+const { Title } = Typography;
 
 // Import PNG like this
-import logo from "./assets/logo.png";
+// import logo from "./assets/logo.png";
 
 // Import SVG like this
 // import logo from "./assets/logo.svg";
@@ -15,8 +18,13 @@ export const App = () => {
 
   return (
     <div>
-      <img src={logo} className="logo rotate" />
-      <h2>Hi!</h2>
+      <Title className="main-title">Password Tester</Title>
+      <div>
+        <h2></h2>
+        {/* Insert Antdesign Input here */}
+      </div>
+
+      <div id="about">Created by Sahithyan with ❤️</div>
     </div>
   );
 };
