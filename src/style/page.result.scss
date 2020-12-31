@@ -4,11 +4,22 @@
 .main-content {
   background-color: $secondary-color;
   padding: 10px;
+
+  .crack-time {
+    max-width: 90%;
+    line-height: 1.25em;
+    font-size: 1.025em;
+
+    .crack-time--important {
+      font-weight: bold;
+    }
+  }
 }
+
 // TODO change these colors to match the emotion
 $score-colors: (
   "very-strong": red,
-  "strong": blue,
+  "strong": rgb(68, 204, 41),
   "average-color": red,
   "bad-color": red,
   "worse-color": red,
@@ -30,15 +41,32 @@ $score-colors: (
   }
 }
 
+.main-content,
 .secondary-content {
+  border-radius: 8px;
+}
+
+.secondary-content {
+  $padding: 12px;
+  $top-push: 8px;
+
   background-color: $primary-color;
   color: $secondary-color;
-  padding: 12px 0;
+  padding: ($padding + $top-push) 0 12px 0;
+  position: relative;
+  top: -1 * $top-push;
+  z-index: -1;
 
   ul {
     list-style: none;
+    margin: 0;
     li {
       font-size: 1.1em;
     }
   }
+}
+
+.learn-more {
+  display: block;
+  margin: 10px 0;
 }

@@ -3,6 +3,8 @@ import { Typography, Form, Input, Button } from "antd";
 
 const { Title } = Typography;
 
+import "./../style/page.home.scss";
+
 export const HomePage = () => {
   const [result, setResult] = React.useState<any>(null);
 
@@ -23,7 +25,7 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="home-page">
+    <div className="page home-page">
       <div className="main-content">
         <Title className="main-title">Password Tester</Title>
         <div>
@@ -50,7 +52,7 @@ export const HomePage = () => {
           </Form>
         </div>
       </div>
-
+      {/* TODO move this to App.tsx outside react-router */}
       <div className="about">Created by Sahithyan with ❤️</div>
     </div>
   );
