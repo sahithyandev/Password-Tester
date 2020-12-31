@@ -53,7 +53,6 @@ export const HomePage = () => {
         </div>
       </div>
       {/* TODO move this to App.tsx outside react-router */}
-      <div className="about">Created by Sahithyan with ❤️</div>
     </div>
   );
 };

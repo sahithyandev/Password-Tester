@@ -1,19 +1,26 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Typography, Button, Input, Form } from "antd";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import { HomePage } from "./pages/Home";
-import { ResultPage } from "./pages/Result";
+import { HomePage, ResultPage, LearnMorePage } from "./pages";
 import { ResultObj } from "./types";
 
 import "./style/theme.antd.less";
 import "./style/main.scss";
 
-const { Title } = Typography;
-
 export const App = () => {
-  // Change with react-router
-  return <ResultPage />;
+  return (
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route component={HomePage} path="/" />
+          <Route component={ResultPage} path="/result" />
+          <Route component={LearnMorePage} path="/learn-more" />
+        </Switch>
+      </BrowserRouter>
+      <div className="about">Created by Sahithyan with ❤️</div>
+    </>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));

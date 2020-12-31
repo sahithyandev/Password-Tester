@@ -1,72 +1,74 @@
 @import "typography";
 @import "./variables.scss";
 
-.main-content {
-  background-color: $secondary-color;
-  padding: 10px;
+.result-page {
+  .main-content {
+    background-color: $secondary-color;
+    padding: 10px;
 
-  .crack-time {
-    max-width: 90%;
-    line-height: 1.25em;
-    font-size: 1.025em;
+    .crack-time {
+      max-width: 90%;
+      line-height: 1.25em;
+      font-size: 1.025em;
 
-    .crack-time--important {
-      font-weight: bold;
+      .crack-time--important {
+        font-weight: bold;
+      }
     }
   }
-}
 
-// TODO change these colors to match the emotion
-$score-colors: (
-  "4": red,
-  "3": rgb(68, 204, 41),
-  "2": red,
-  "1": red,
-  "0": red,
-);
-.score-text {
-  @extend .roboto;
+  // TODO change these colors to match the emotion
+  $score-colors: (
+    "4": red,
+    "3": rgb(68, 204, 41),
+    "2": red,
+    "1": red,
+    "0": red,
+  );
+  .score-text {
+    @extend .roboto;
 
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 2em;
-  text-align: center;
-}
-@each $sx, $color in $score-colors {
-  .score-text--#{$sx} {
-    color: $color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2em;
+    text-align: center;
   }
-  .score-bar--#{$sx} .ant-progress-bg {
-    background-color: $color;
-  }
-}
-
-.main-content,
-.secondary-content {
-  border-radius: 8px;
-}
-
-.secondary-content {
-  $padding: 12px;
-  $top-push: 8px;
-
-  background-color: $primary-color;
-  color: $secondary-color;
-  padding: ($padding + $top-push) 0 12px 0;
-  position: relative;
-  top: -1 * $top-push;
-  z-index: -1;
-
-  ul {
-    list-style: none;
-    margin: 0;
-    li {
-      font-size: 1.1em;
+  @each $sx, $color in $score-colors {
+    .score-text--#{$sx} {
+      color: $color;
+    }
+    .score-bar--#{$sx} .ant-progress-bg {
+      background-color: $color;
     }
   }
-}
 
-.learn-more {
-  display: block;
-  margin: 10px 0;
+  .main-content,
+  .secondary-content {
+    border-radius: 8px;
+  }
+
+  .secondary-content {
+    $padding: 12px;
+    $top-push: 8px;
+
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: ($padding + $top-push) 0 12px 0;
+    position: relative;
+    top: -1 * $top-push;
+    z-index: -1;
+
+    ul {
+      list-style: none;
+      margin: 0;
+      li {
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  .learn-more {
+    display: block;
+    margin: 10px 0;
+  }
 }
