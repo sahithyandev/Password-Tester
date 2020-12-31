@@ -25,8 +25,8 @@ interface PropTypes {
   data?: DataModel;
 }
 
-const scoreClassName = (score: string, type: "bar" | "text" = "text") =>
-  `score-${type}--${score.replace(" ", "-")}`;
+const scoreClassName = (score: number, type: "bar" | "text" = "text") =>
+  `score-${type}--${score}`;
 
 export const ResultPage = ({ data }: PropTypes) => {
   if (!data) {
@@ -53,16 +53,11 @@ export const ResultPage = ({ data }: PropTypes) => {
         <Progress
           percent={score.value * 20}
           showInfo={false}
-          className={[
-            "score-bar",
-            scoreClassName(score.display_value, "bar"),
-          ].join(" ")}
-        />
-        <h2
-          className={["score-text", scoreClassName(score.display_value)].join(
+          className={["score-bar", scoreClassName(score.value, "bar")].join(
             " "
           )}
-        >
+        />
+        <h2 className={["score-text", scoreClassName(score.value)].join(" ")}>
           {score.display_value}
         </h2>
 

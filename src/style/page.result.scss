@@ -18,11 +18,11 @@
 
 // TODO change these colors to match the emotion
 $score-colors: (
-  "very-strong": red,
-  "strong": rgb(68, 204, 41),
-  "average-color": red,
-  "bad-color": red,
-  "worse-color": red,
+  "4": red,
+  "3": rgb(68, 204, 41),
+  "2": red,
+  "1": red,
+  "0": red,
 );
 .score-text {
   @extend .roboto;
