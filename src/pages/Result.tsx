@@ -3,6 +3,7 @@ import { Button, Typography, Progress } from "antd";
 
 import { ResultObj } from "../types";
 import "./../style/page.result.scss";
+import { useHistory, useLocation } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -21,30 +22,21 @@ interface DataModel {
     suggestions: string[];
   };
 }
-interface PropTypes {
-  data?: DataModel;
-}
 
 const scoreClassName = (score: number, type: "bar" | "text" = "text") =>
   `score-${type}--${score}`;
 
-export const ResultPage = ({ data }: PropTypes) => {
+export const ResultPage = (props) => {
+  const location = useLocation();
+
+  let data = location.state as DataModel;
   if (!data) {
-    data = {
-      password: "sahithyan",
-      score: { value: 3, display_value: "strong" },
-      crack_seconds: {
-        slowest: { value: 3600360000, display_value: "centuries" },
-        fastest: { value: 0.010001, display_value: "less than a second" },
-      },
-      feedback: {
-        warning: "This is one of the top-10 common passwords",
-        suggestions: ["Add one or two words."],
-      },
-    } as DataModel;
+    useHistory().push("/");
   }
+
+  console.log(data);
   const { password, score, crack_seconds, feedback } = data;
-  console.log(feedback);
+
   return (
     <div className="page result-page">
       <Title className="main-title">Password Tester</Title>
@@ -73,17 +65,24 @@ export const ResultPage = ({ data }: PropTypes) => {
         </p>
       </div>
 
-      <div className="secondary-content improvement-tips-container">
-        <ul>
-          {feedback.suggestions.map((suggestion) => {
-            return (
-              <li key={suggestion} className="suggestion">
-                {suggestion}
+      {!feedback.warning && feedback.suggestions.length == 0 ? null : (
+        <div className="secondary-content improvement-tips-container">
+          <ul>
+            {feedback.warning ? (
+              <li key={feedback.warning} className="warning">
+                {feedback.warning}
               </li>
-            );
-          })}
-        </ul>
-      </div>
+            ) : null}
+            {feedback.suggestions.map((suggestion) => {
+              return (
+                <li key={suggestion} className="suggestion">
+                  {suggestion}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
 
       <a href="#" className="learn-more">
         Learn more about the calculations

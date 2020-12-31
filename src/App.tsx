@@ -13,9 +13,9 @@ export const App = () => {
     <>
       <BrowserRouter>
         <Switch>
-          <Route component={HomePage} path="/" />
           <Route component={ResultPage} path="/result" />
           <Route component={LearnMorePage} path="/learn-more" />
+          <Route component={HomePage} path="/" />
         </Switch>
       </BrowserRouter>
       <div className="about">Created by Sahithyan with ❤️</div>

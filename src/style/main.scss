@@ -20,6 +20,18 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about {
+  width: fit-content;
+  font-size: 0.95em;
+  margin: 0 auto 6px auto;
+}
+
 a {
   text-decoration: underline $primary-color 1px;
   font-style: italic;
@@ -33,19 +45,9 @@ a {
   margin-bottom: 8vh !important;
 }
 
-.main-content {
-  margin: auto 0;
-}
-
 .ant-form-item {
   label {
     @extend .playfair-display-400;
     font-size: 1rem;
   }
-}
-
-.about {
-  width: fit-content;
-  font-size: 0.95em;
-  margin: 0 auto 6px auto;
 }
