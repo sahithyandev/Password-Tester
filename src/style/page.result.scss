@@ -1,0 +1,44 @@
+@import "typography";
+@import "./variables.scss";
+
+.main-content {
+  background-color: $secondary-color;
+  padding: 10px;
+}
+// TODO change these colors to match the emotion
+$score-colors: (
+  "very-strong": red,
+  "strong": blue,
+  "average-color": red,
+  "bad-color": red,
+  "worse-color": red,
+);
+.score-text {
+  @extend .roboto;
+
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+}
+@each $sx, $color in $score-colors {
+  .score-text--#{$sx} {
+    color: $color;
+  }
+  .score-bar--#{$sx} .ant-progress-bg {
+    background-color: $color;
+  }
+}
+
+.secondary-content {
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 12px 0;
+
+  ul {
+    list-style: none;
+    li {
+      font-size: 1.1em;
+    }
+  }
+}

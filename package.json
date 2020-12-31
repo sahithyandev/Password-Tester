@@ -9,6 +9,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "@types/mongodb": "^3.6.3",
     "@vercel/node": "^1.8.5",
     "antd": "4.9.3",
     "less": "3.13.0",

@@ -27,6 +27,7 @@ export default function (request: NowRequest, response: NowResponse) {
   }
 
   const SCORE_DISPLAY_VALUES = {
+    // add colors here
     0: "worse",
     1: "bad",
     2: "average",
