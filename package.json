@@ -7,7 +7,7 @@
 	"scripts": {
 		"start": "PORT=$PORT parcel index.html",
 		"build": "parcel build index.html",
-		"lint-check": "eslint src/"
+		"lint": "eslint src/"
 	},
 	"dependencies": {
 		"@types/mongodb": "^3.6.3",
