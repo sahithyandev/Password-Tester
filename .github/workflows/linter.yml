@@ -8,4 +8,4 @@ jobs:
       - name: npm install
         run: npm install
       - name: eslint
-        run: npm run lint-check
+        run: npm run lint
