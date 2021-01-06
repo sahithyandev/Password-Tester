@@ -1,9 +1,8 @@
 import * as React from "react";
 import { Button, Typography, Progress } from "antd";
 
-import { ResultObj } from "../types";
 import "./../style/page.result.scss";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -84,9 +83,9 @@ export const ResultPage = (props) => {
         </div>
       )}
 
-      <a href="#" className="learn-more">
+      <Link to="/learn-more" className="learn-more">
         Learn more about the calculations
-      </a>
+      </Link>
       <Button type="primary">Check Another Password</Button>
     </div>
   );
