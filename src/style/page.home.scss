@@ -1,0 +1,17 @@
+.home-page {
+	.submit-form-item {
+		display: flex;
+		flex-direction: row;
+		gap: 10px !important;
+
+		.submit {
+			padding: 10px 14px;
+			display: inline-flex;
+			font-weight: 500;
+			// font-family: Roboto;
+		}
+		.ant-spin {
+			margin-left: 10px;
+		}
+	}
+}

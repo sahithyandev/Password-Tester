@@ -2,75 +2,79 @@
 @import "./variables.scss";
 
 .result-page {
-  .main-content {
-    background-color: $secondary-color;
-    padding: 10px;
+	.main-content {
+		background-color: $secondary-color;
+		padding: 10px;
+		position: relative;
 
-    .crack-time {
-      max-width: 90%;
-      line-height: 1.25em;
-      font-size: 1.025em;
+		.crack-time {
+			max-width: 90%;
+			line-height: 1.25em;
+			font-size: 1.025em;
 
-      .crack-time--important {
-        font-weight: bold;
-      }
-    }
-  }
+			.crack-time--important {
+				font-weight: bold;
+			}
+		}
+	}
 
-  // TODO change these colors to match the emotion
-  $score-colors: (
-    "4": red,
-    "3": rgb(68, 204, 41),
-    "2": red,
-    "1": red,
-    "0": red,
-  );
-  .score-text {
-    @extend .roboto;
+	// TODO change these colors to match the emotion
+	$score-colors: (
+		"4": #25f621,
+		"3": #68da66,
+		"2": #a4a580,
+		"1": #f0a35b,
+		"0": #f13a3a,
+	);
+	.score-text {
+		@extend .roboto;
 
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 2em;
-    text-align: center;
-  }
-  @each $sx, $color in $score-colors {
-    .score-text--#{$sx} {
-      color: $color;
-    }
-    .score-bar--#{$sx} .ant-progress-bg {
-      background-color: $color;
-    }
-  }
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 2em;
+		text-align: center;
+	}
+	@each $sx, $color in $score-colors {
+		.score-text--#{$sx} {
+			color: $color;
+		}
+		.score-bar--#{$sx} .ant-progress-bg {
+			background-color: $color;
+		}
+	}
 
-  .main-content,
-  .secondary-content {
-    border-radius: 8px;
-  }
+	.main-content,
+	.secondary-content {
+		border-radius: 8px;
+	}
 
-  .secondary-content {
-    $padding: 12px;
-    $top-push: 8px;
+	.secondary-content {
+		$padding: 12px;
+		$top-push: 8px;
 
-    background-color: $primary-color;
-    color: $secondary-color;
-    padding: ($padding + $top-push) 0 12px 0;
-    position: relative;
-    top: -1 * $top-push;
-    z-index: -1;
+		background-color: $primary-color;
+		color: $secondary-color;
+		padding: ($padding + $top-push) 0 12px 0;
+		position: relative;
+		top: -1 * $top-push;
+		z-index: -1;
 
-    ul {
-      list-style: none;
-      margin: 0;
-      width: 90%;
-      li {
-        font-size: 1.1em;
-        line-height: 1.05em;
-      }
-    }
-  }
+		ul {
+			margin: 0;
+			width: 90%;
+			li {
+				font-size: 1.1em;
+				line-height: 1.05em;
 
-  .learn-more {
-    display: block;
-    margin: 10px 0;
-  }
+				&::marker {
+					background-color: red;
+				}
+			}
+		}
+	}
+
+	.learn-more {
+		display: block;
+		margin: 10px 0;
+	}
 }

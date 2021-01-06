@@ -1,6 +1,14 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
-import { Typography, Form, Input, Button } from "antd";
+import { Typography, Form, Input, Button, Spin } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+
+const LoadingSpinner = (
+	<LoadingOutlined
+		style={{ fontSize: 24, color: "#454756", fontWeight: "bolder" }}
+		spin
+	/>
+);
 
 import "./../style/page.home.scss";
 
@@ -8,19 +16,25 @@ const { Title } = Typography;
 
 export const HomePage: React.FC = () => {
 	const history = useHistory();
+	const [isLoading, setLoading] = React.useState(false);
 	const onFinish = (values) => {
-		console.log("Success:", values);
+		console.log("form:success", values);
+		setLoading(true);
 
-		fetch(`/api/main?password=${values["password"]}`)
+		fetch(`/api/main?password=${values["password"]}&testing`) // TODO Remove this in production
 			.then((response) => response.json())
 			.then((result) => {
 				history.push("/result", result);
 			})
-			.catch(console.error);
+			.catch((error) => {
+				alert("Error Occured. Blame the developer.");
+				console.error(error);
+				setLoading(false);
+			});
 	};
 
 	const onFinishFailed = (errorInfo) => {
-		console.log("Failed:", errorInfo);
+		console.log("form:failed", errorInfo);
 	};
 
 	return (
@@ -42,10 +56,17 @@ export const HomePage: React.FC = () => {
 						<Input />
 					</Form.Item>
 
-					<Form.Item>
-						<Button size="middle" type="primary" htmlType="submit">
-							Test
+					<Form.Item className="submit-form-item">
+						<Button
+							size="middle"
+							type="primary"
+							htmlType="submit"
+							className="submit"
+							disabled={isLoading}
+						>
+							{isLoading ? "Loading..." : "Test Password"}
 						</Button>
+						<Spin spinning={isLoading} indicator={LoadingSpinner}></Spin>
 					</Form.Item>
 				</Form>
 			</div>

@@ -27,20 +27,23 @@ const scoreClassName = (score: number, type: "bar" | "text" = "text") =>
 
 export const ResultPage: React.FC = () => {
 	const location = useLocation();
+	const history = useHistory();
 
 	const data = location.state as DataModel;
 	if (!data) {
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		useHistory().push("/");
+		history.push("/");
 	}
 
 	console.log(data);
 	const { score, crack_seconds, feedback } = data;
 
+	const goBack = () => {
+		history.goBack();
+	};
+
 	return (
 		<div className="page result-page">
 			<Title className="main-title">Password Tester</Title>
-
 			<div className="main-content">
 				<Progress
 					percent={score.value * 20}
@@ -62,9 +65,9 @@ export const ResultPage: React.FC = () => {
 					<span className="crack-time--important">
 						{crack_seconds.fastest.display_value}
 					</span>
+					.
 				</p>
 			</div>
-
 			{!feedback.warning && feedback.suggestions.length == 0 ? null : (
 				<div className="secondary-content improvement-tips-container">
 					<ul>
@@ -83,11 +86,12 @@ export const ResultPage: React.FC = () => {
 					</ul>
 				</div>
 			)}
-
 			<Link to="/learn-more" className="learn-more">
 				Learn more about the calculations
 			</Link>
-			<Button type="primary">Check Another Password</Button>
+			<Button type="primary" onClick={goBack}>
+				Check Another Password
+			</Button>
 		</div>
 	);
 };

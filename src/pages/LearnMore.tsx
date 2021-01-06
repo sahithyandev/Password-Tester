@@ -40,6 +40,10 @@ export const LearnMorePage: React.FC = () => {
 					</b>{" "}
 					because that would be the first options in their word list.
 				</p>
+				<p>
+					<b>@zxcvbn-ts/zxcvbn</b> gives 4 crack-times. And this web app shows
+					the fastest and the slowest only.
+				</p>
 			</div>
 		</div>
 	);

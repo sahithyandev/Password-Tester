@@ -1,9 +1,14 @@
 .learn-more-page {
-  .main-title {
-    margin-bottom: 4vh !important;
-  }
+	.main-title {
+		margin-bottom: 4vh !important;
+		margin-top: 40px !important;
+	}
 
-  b.important {
-    text-transform: uppercase;
-  }
+	.main-content {
+		margin-bottom: 20px;
+	}
+
+	b.important {
+		text-transform: uppercase;
+	}
 }
