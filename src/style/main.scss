@@ -9,8 +9,9 @@
 html,
 body {
   @extend .roboto;
-  margin: 0;
+  margin: 0 auto;
   color: $primary-color;
+  max-width: 600px;
 }
 
 #root {
