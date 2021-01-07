@@ -9,7 +9,7 @@ export default async function (
 	request: NowRequest,
 	response: NowResponse
 ): Promise<void> {
-	const password = (request.query["password"] as string) || "";
+	const password = decodeURI(request.query["password"] as string) || "";
 
 	if (password === "") {
 		response.statusCode = 449;
