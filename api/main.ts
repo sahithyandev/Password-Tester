@@ -68,6 +68,10 @@ export default async function (
 
 	const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD || "";
 	const MONGODB_DBNAME = process.env.MONGODB_DBNAME || "";
+	console.log({
+		// MONGODB_PASSWORD,
+		MONGODB_DBNAME,
+	});
 	const uri = `mongodb+srv://web-app:${MONGODB_PASSWORD}@cluster0.t1y9l.mongodb.net/${MONGODB_DBNAME}?retryWrites=true&w=majority`;
 	const client = new MongoClient(uri, { useNewUrlParser: true });
 
