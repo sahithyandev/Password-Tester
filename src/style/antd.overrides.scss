@@ -1,0 +1,17 @@
+@import "./typography.scss";
+
+.ant-btn {
+  @extend .playfair-display;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-btn-primary {
+  font-size: 1rem;
+  padding: 18px 32px;
+}
+
+.ant-input {
+  max-width: 400px;
+}

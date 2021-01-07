@@ -1,0 +1,56 @@
+@import "./antd.overrides.scss";
+@import "./typography.scss";
+@import "./variables.scss";
+
+:root {
+	font-size: 16px;
+}
+
+html,
+body {
+	@extend .roboto;
+	margin: 0 auto;
+	color: $primary-color;
+	max-width: 600px;
+}
+
+#root {
+	margin: 0 16px;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.main-title {
+		@extend .playfair-display-700;
+
+		max-width: 200px;
+		margin-top: 0;
+		margin-bottom: 8vh !important;
+	}
+}
+
+.about {
+	// created by Sahithyan text
+	width: fit-content;
+	font-size: 0.95em;
+	margin: 0 auto 12px auto;
+	font-family: serif;
+}
+
+a {
+	text-decoration: underline $primary-color 1px;
+	font-style: italic;
+}
+
+.ant-form-item {
+	label {
+		@extend .playfair-display-400;
+		font-size: 1rem;
+	}
+}

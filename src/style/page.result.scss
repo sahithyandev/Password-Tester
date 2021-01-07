@@ -1,0 +1,79 @@
+@import "typography";
+@import "./variables.scss";
+
+.result-page {
+	.main-content {
+		background-color: $secondary-color;
+		padding: 10px;
+		position: relative;
+
+		.crack-time {
+			max-width: 90%;
+			line-height: 1.25em;
+			font-size: 1.025em;
+
+			.crack-time--important {
+				font-weight: bold;
+			}
+		}
+	}
+
+	$score-colors: (
+		"4": #25f621,
+		"3": #68da66,
+		"2": #a4a580,
+		"1": #f0a35b,
+		"0": #f13a3a,
+	);
+	.score-text {
+		@extend .roboto;
+
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 2em;
+		text-align: center;
+	}
+	@each $sx, $color in $score-colors {
+		.score-text--#{$sx} {
+			color: $color;
+		}
+		.score-bar--#{$sx} .ant-progress-bg {
+			background-color: $color;
+		}
+	}
+
+	.main-content,
+	.secondary-content {
+		border-radius: 8px;
+	}
+
+	.secondary-content {
+		$padding: 12px;
+		$top-push: 8px;
+
+		background-color: $primary-color;
+		color: $secondary-color;
+		padding: ($padding + $top-push) 0 12px 0;
+		position: relative;
+		top: -1 * $top-push;
+		z-index: -1;
+
+		ul {
+			margin: 0;
+			width: 90%;
+			li {
+				font-size: 1.1em;
+				line-height: 1.05em;
+
+				&::marker {
+					background-color: red;
+				}
+			}
+		}
+	}
+
+	.learn-more {
+		display: block;
+		margin: 10px 0;
+	}
+}
