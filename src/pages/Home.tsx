@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
 		console.log("form:success", values);
 		setLoading(true);
 
-		fetch(`/api/main?password=${encodeURI(values["password"])}`)
+		fetch(`/api/main?password=${encodeURIComponent(values["password"])}`)
 			.then((response) => response.json())
 			.then((result) => {
 				history.push("/result", result);
