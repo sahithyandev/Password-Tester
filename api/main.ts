@@ -10,9 +10,9 @@ export default async function (
 	response: NowResponse
 ): Promise<void> {
 	const password =
-		decodeURIComponent(request.query["password"] as string) || "";
+		request.body || decodeURIComponent(request.query["password"] as string);
 
-	if (password === "") {
+	if (!password) {
 		response.statusCode = 449;
 		response.send({
 			error: "'password' must be passed",
@@ -33,7 +33,6 @@ export default async function (
 	}
 
 	const SCORE_DISPLAY_VALUES = {
-		// add colors here
 		0: "worse",
 		1: "bad",
 		2: "average",
